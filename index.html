@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>জাপানি পার্টিকেল গাইড — Mashrafe Sheikh</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;700&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #0d0d0f;
+    --surface: #14141a;
+    --card:    #1a1a24;
+    --border:  #2a2a3a;
+    --accent:  #e8433a;
+    --accent2: #f0a500;
+    --gold:    #c9922a;
+    --text:    #e8e4dc;
+    --muted:   #8a8690;
+    --jp:      #f5f0e8;
+    --n5-bg:   #0a1f0a;
+    --n5-col:  #4ecb6e;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans Bengali', 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.018) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.018) 40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 20px 72px;
+  }
+
+  /* ── HEADER ── */
+  header { margin-bottom: 36px; }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 26px;
+  }
+
+  /* Gold pill badge */
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 20px;
+    border: 1.5px solid var(--accent);
+    border-radius: 100px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    text-transform: uppercase;
+    background: transparent;
+  }
+
+  /* Social icons row */
+  .header-socials {
+    display: flex;
+    gap: 8px;
+  }
+
+  .hsocial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: #1c1c26;
+    border: 1px solid #30303f;
+    color: #ccc;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .hsocial:hover {
+    background: #2e2e40;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .hsocial svg { width: 17px; height: 17px; fill: currentColor; }
+
+  /* Centered title */
+  .header-title { text-align: center; }
+
+  .header-jp {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 5px;
+    margin-bottom: 8px;
+  }
+
+  header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    font-family: 'Noto Sans Bengali', sans-serif;
+  }
+
+  header h1 span { color: var(--accent); }
+
+  .subtitle {
+    margin-top: 6px;
+    font-size: 11.5px;
+    color: var(--muted);
+    font-family: 'Noto Sans Bengali', sans-serif;
+  }
+
+  /* ── NAV PILLS ── */
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+
+  .nav-pill {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 5px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+  }
+
+  .nav-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(232,67,58,0.07);
+  }
+
+  /* ── PARTICLE CARD ── */
+  .particle-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .particle-card:hover {
+    border-color: rgba(232,67,58,0.35);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .num-badge {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    min-width: 18px;
+  }
+
+  .particle-jp {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 34px;
+  }
+
+  .particle-bn {
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 12.5px;
+    color: var(--muted);
+    flex: 1;
+  }
+
+  .particle-bn strong {
+    color: var(--text);
+    font-size: 13.5px;
+    display: block;
+  }
+
+  .n5-badge {
+    background: var(--n5-bg);
+    color: var(--n5-col);
+    border: 1px solid rgba(78,203,110,0.3);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-family: monospace;
+  }
+
+  .n4-badge {
+    background: #1a100a;
+    color: var(--accent2);
+    border: 1px solid rgba(240,165,0,0.3);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-family: monospace;
+  }
+
+  .toggle-icon {
+    color: var(--muted);
+    font-size: 17px;
+    transition: transform 0.25s;
+    margin-left: auto;
+  }
+
+  .card-body { padding: 18px 20px; }
+  .card-body.collapsed { display: none; }
+
+  /* Rule blocks */
+  .rule {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .rule:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+  .rule-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent2);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .rule-title::before {
+    content: '';
+    display: inline-block;
+    width: 3px; height: 13px;
+    background: var(--accent2);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .rule-desc {
+    font-size: 12px;
+    color: #9090a8;
+    margin-bottom: 7px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+  }
+
+  .example {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(0,0,0,0.22);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 9px 13px;
+    margin-top: 6px;
+  }
+
+  .example-jp {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13.5px;
+    color: var(--jp);
+    flex: 1;
+    line-height: 1.7;
+  }
+
+  .example-bn {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-style: italic;
+    flex: 1;
+    line-height: 1.7;
+  }
+
+  .note-box {
+    background: rgba(240,165,0,0.05);
+    border: 1px solid rgba(240,165,0,0.18);
+    border-radius: 8px;
+    padding: 10px 13px;
+    margin-top: 11px;
+    font-size: 12px;
+    color: #b09050;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    line-height: 1.7;
+  }
+
+  .note-box .note-head {
+    font-weight: 700;
+    color: var(--accent2);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .compare-item {
+    background: rgba(0,0,0,0.28);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 11px;
+  }
+
+  .compare-item .ci-label {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 3px;
+  }
+
+  .compare-item .ci-desc {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'Noto Sans Bengali', sans-serif;
+  }
+
+  .compare-item .ci-ex {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    color: var(--jp);
+    margin-top: 3px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 60px;
+    border-top: 1px solid var(--border);
+    padding-top: 0;
+    text-align: center;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    overflow: hidden;
+  }
+
+  .footer-inner {
+    background: var(--surface);
+    padding: 40px 24px 32px;
+    position: relative;
+  }
+
+  .footer-bg-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+    font-size: clamp(40px, 10vw, 90px);
+    font-weight: 900;
+    color: rgba(232,67,58,0.04);
+    letter-spacing: 4px;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .footer-brand {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(22px, 5vw, 40px);
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .footer-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 0 auto 14px;
+  }
+
+  .footer-sub {
+    font-size: 11.5px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .footer-social-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    margin-bottom: 24px;
+  }
+
+  .fsocial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: #1c1c28;
+    border: 1px solid #30303f;
+    color: #aaa;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .fsocial:hover {
+    background: #2a2a3a;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .fsocial svg { width: 16px; height: 16px; fill: currentColor; }
+
+  .footer-copy {
+    font-size: 10.5px;
+    color: #44444a;
+    position: relative;
+    letter-spacing: 0.5px;
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    .wrapper { padding: 16px 11px 56px; }
+    header { margin-bottom: 24px; }
+    .header-top { padding-bottom: 13px; margin-bottom: 20px; }
+    .brand-badge { font-size: 9.5px; padding: 5px 12px; letter-spacing: 1.5px; }
+    .header-socials { gap: 6px; }
+    .hsocial { width: 34px; height: 34px; border-radius: 8px; }
+    .hsocial svg { width: 15px; height: 15px; }
+    header h1 { font-size: 20px; }
+    .header-jp { font-size: 9px; letter-spacing: 3px; }
+    .subtitle { font-size: 10.5px; }
+    .nav-pills { gap: 5px; margin-bottom: 22px; }
+    .nav-pill { font-size: 12px; padding: 4px 10px; }
+    .card-header { padding: 11px 13px; gap: 9px; }
+    .particle-jp { font-size: 20px; min-width: 26px; }
+    .particle-bn { font-size: 11px; }
+    .particle-bn strong { font-size: 12px; }
+    .n5-badge, .n4-badge { font-size: 9px; padding: 1px 6px; }
+    .card-body { padding: 13px 11px; }
+    .example { flex-direction: column; gap: 3px; padding: 8px 10px; }
+    .example-jp { font-size: 13px; }
+    .example-bn { font-size: 11px; }
+    .rule-title { font-size: 11px; }
+    .rule-desc { font-size: 11px; }
+    .rule { margin-bottom: 12px; padding-bottom: 10px; }
+    .compare { gap: 5px; }
+    .compare-item { padding: 6px 8px; }
+    .compare-item .ci-label { font-size: 13px; }
+    .compare-item .ci-desc, .compare-item .ci-ex { font-size: 10px; }
+    .note-box { font-size: 11px; padding: 8px 10px; }
+    footer { padding-top: 16px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <span class="brand-badge">Z2I_MASHRAFE</span>
+      <div class="header-socials">
+        <a class="hsocial" href="https://www.facebook.com/z2i.mashrafe" target="_blank" title="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.269h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+        <a class="hsocial" href="https://www.instagram.com/z2i.mashrafe" target="_blank" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="hsocial" href="https://x.com/z2i_mashrafe" target="_blank" title="X">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="hsocial" href="https://github.com/z2i-mashrafe" target="_blank" title="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="header-title">
+      <div class="header-jp">じょし・ガイド</div>
+      <h1>জাপানি <span>পার্টিকেল</span> গাইড</h1>
+      <p class="subtitle">সম্পূর্ণ বাংলায় ব্যাখ্যা সহ • N5 লেভেল</p>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <div class="nav-pills">
+    <a class="nav-pill" href="#p1">は</a>
+    <a class="nav-pill" href="#p2">が</a>
+    <a class="nav-pill" href="#p3">を</a>
+    <a class="nav-pill" href="#p4">に</a>
+    <a class="nav-pill" href="#p5">で</a>
+    <a class="nav-pill" href="#p6">へ</a>
+    <a class="nav-pill" href="#p7">から</a>
+    <a class="nav-pill" href="#p8">まで</a>
+    <a class="nav-pill" href="#p9">までに</a>
+    <a class="nav-pill" href="#p10">の</a>
+    <a class="nav-pill" href="#p11">と</a>
+    <a class="nav-pill" href="#p12">や</a>
+    <a class="nav-pill" href="#p13">か</a>
+    <a class="nav-pill" href="#p14">も</a>
+    <a class="nav-pill" href="#p15">ね</a>
+    <a class="nav-pill" href="#p16">よ</a>
+    <a class="nav-pill" href="#p17">ごろ</a>
+    <a class="nav-pill" href="#p18">ぐらい</a>
+  </div>
+
+<!-- ① は -->
+  <div class="particle-card" id="p1">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">①</span>
+      <span class="particle-jp">は</span>
+      <div class="particle-bn"><strong>বিষয় চিহ্নিতকারী</strong>Topic marker</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) বাক্যের মূল বিষয় পরিচয় করানো</div>
+        <div class="rule-desc">বাক্যে কার বা কীসের কথা বলা হচ্ছে সেটা বোঝাতে বিষয়ের পরে は বসে। এটা বাংলার "এটা হলো..." বা "এর কথা বলছি..." এর মতো।</div>
+        <div class="example">
+          <span class="example-jp">これは ほんです。</span>
+          <span class="example-bn">এটা বই।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) বিপরীত বোঝাতে — Contrast <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">দুটো জিনিস তুলনা করার সময় を বা が সরিয়ে は বসে।</div>
+        <div class="example">
+          <span class="example-jp">ワインは のみますが、ビールは のみません。</span>
+          <span class="example-bn">ওয়াইন খাই, কিন্তু বিয়ার খাই না।</span>
+        </div>
+        <div class="example">
+          <span class="example-jp">かいしゃでは はなしますが、うちでは はなしません。</span>
+          <span class="example-bn">অফিসে জাপানি বলি, কিন্তু বাড়িতে বলি না।</span>
+        </div>
+      </div>
+      <div class="note-box">
+        <div class="note-head">⚠️ は vs が — সবচেয়ে গুরুত্বপূর্ণ পার্থক্য</div>
+        <div class="compare">
+          <div class="compare-item">
+            <div class="ci-label">は</div>
+            <div class="ci-desc">বিষয় পরিচিত, আলোচনার কেন্দ্র</div>
+            <div class="ci-ex">すずきさんは きました。<br><span style="font-size:10px;color:#666">সুজুকি সান (বিষয়) এলো</span></div>
+          </div>
+          <div class="compare-item">
+            <div class="ci-label">が</div>
+            <div class="ci-desc">কর্তা নতুন বা অজানা তথ্য</div>
+            <div class="ci-ex">すずきさんが きました。<br><span style="font-size:10px;color:#666">সুজুকি সানই (জোর দিয়ে) এলো</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② が -->
+  <div class="particle-card" id="p2">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">②</span>
+      <span class="particle-jp">が</span>
+      <div class="particle-bn"><strong>কর্তা চিহ্নিতকারী</strong>Subject marker</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) নির্দিষ্ট কিছু দেখানো</div>
+        <div class="rule-desc">অন্যটা নয়, এটাই — জোর দিয়ে বলার সময়।</div>
+        <div class="example">
+          <span class="example-jp">これが わたしの くるまです。</span>
+          <span class="example-bn">এটাই আমার গাড়ি।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) অজানা কর্তার প্রশ্ন-উত্তর</div>
+        <div class="rule-desc">কে কাজটা করেছে সেটা জানা না থাকলে প্রশ্নে が ব্যবহার হয়। উত্তরেও が বসে কারণ এটা নতুন তথ্য।</div>
+        <div class="example">
+          <span class="example-jp">Q: だれが きましたか。<br>A: すずきさんが きました。</span>
+          <span class="example-bn">কে এলো?<br>সুজুকি সান এলো।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) নতুন তথ্য জানানো</div>
+        <div class="rule-desc">হঠাৎ কিছু দেখা গেলে বা জানা গেলে — শ্রোতার কাছে তথ্যটা নতুন — সেক্ষেত্রে が ব্যবহার হয়।</div>
+        <div class="example">
+          <span class="example-jp">あっ、すずきさんが きましたよ！</span>
+          <span class="example-bn">আরে, সুজুকি সান এসে গেছে!</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(4) আছে / বিদ্যমান বোঝাতে</div>
+        <div class="rule-desc">あります (জড় জিনিস আছে) বা います (জীবন্ত জিনিস আছে) — এই ক্রিয়ার আগে যা আছে সেটা が দিয়ে চিহ্নিত হয়।</div>
+        <div class="example">
+          <span class="example-jp">えきの まえに マクドナルドが あります。</span>
+          <span class="example-bn">স্টেশনের সামনে ম্যাকডোনাল্ড আছে।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(5) কাছে আছে — have / has</div>
+        <div class="rule-desc">ইংরেজিতে "I have..." বোঝাতে জাপানিতে は...が আছে গঠন ব্যবহার হয়। মালিক は দিয়ে, যা আছে সেটা が দিয়ে।</div>
+        <div class="example">
+          <span class="example-jp">わたしは くるまが 2だい あります。</span>
+          <span class="example-bn">আমার ২টা গাড়ি আছে।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(6) 〜たいです এর সাথে</div>
+        <div class="rule-desc">কিছু চাওয়া বা করতে চাওয়ার সময় সাধারণত を ব্যবহার হয়, কিন্তু たいです (চাই) এর আগে を-র বদলে が বসানো যায়।</div>
+        <div class="example">
+          <span class="example-jp">わたしは みずが のみたいです。</span>
+          <span class="example-bn">আমি পানি খেতে চাই।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(7) কিন্তু — but</div>
+        <div class="rule-desc">が দিয়ে দুটো বাক্য জোড়া লাগানো যায়, যেখানে দ্বিতীয় অংশটা প্রথমের বিপরীত বা অপ্রত্যাশিত।</div>
+        <div class="example">
+          <span class="example-jp">やすいですが、おいしいです。</span>
+          <span class="example-bn">সস্তা, কিন্তু সুস্বাদু।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ③ を -->
+  <div class="particle-card" id="p3">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">③</span>
+      <span class="particle-jp">を</span>
+      <div class="particle-bn"><strong>কর্ম চিহ্নিতকারী</strong>Object marker</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) সরাসরি কর্ম</div>
+        <div class="rule-desc">ক্রিয়াটি যার উপরে করা হচ্ছে সেই জিনিস বা ব্যক্তির পরে を বসে। বাংলায় "কী করছি" বোঝায়।</div>
+        <div class="example">
+          <span class="example-jp">ワインを のみます。</span>
+          <span class="example-bn">ওয়াইন পান করি।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) কোনো জায়গা ছেড়ে যাওয়া</div>
+        <div class="rule-desc">でます (বের হওয়া), おります (নামা), でかけます (বেরিয়ে যাওয়া) — এই ক্রিয়াগুলোর আগে যে জায়গা ছেড়ে যাওয়া হচ্ছে সেটা を দিয়ে চিহ্নিত হয়।</div>
+        <div class="example">
+          <span class="example-jp">うちを でます。／ バスを おります。</span>
+          <span class="example-bn">বাড়ি থেকে বের হই। / বাস থেকে নামি।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) কোনো জায়গার মধ্য দিয়ে যাওয়া</div>
+        <div class="rule-desc">হাঁটা, দৌড়ানো বা যাওয়ার সময় যে জায়গার মধ্য দিয়ে যাওয়া হচ্ছে সেটা を দিয়ে বোঝানো হয়।</div>
+        <div class="example">
+          <span class="example-jp">こうえんを さんぽします。</span>
+          <span class="example-bn">পার্কে হাঁটি।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ に -->
+  <div class="particle-card" id="p4">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">④</span>
+      <span class="particle-jp">に</span>
+      <div class="particle-bn"><strong>গন্তব্য / অস্তিত্ব / সময়</strong>Direction · Existence · Time</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) পরোক্ষ কর্ম — কাকে / কার কাছে</div>
+        <div class="rule-desc">ক্রিয়াটি যার দিকে করা হচ্ছে তাকে বোঝায়।</div>
+        <div class="example">
+          <span class="example-jp">ともだちに でんわを します。</span>
+          <span class="example-bn">বন্ধুকে ফোন করি।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) গন্তব্য বা দিক — কোথায় যাচ্ছি</div>
+        <div class="rule-desc">[জায়গা]に + যাওয়া/আসার ক্রিয়া</div>
+        <div class="example">
+          <span class="example-jp">しんじゅくに いきます。</span>
+          <span class="example-bn">শিনজুকুতে যাই।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) অস্তিত্বের স্থান — কোথায় আছে</div>
+        <div class="rule-desc">[জায়গা]に + あります / います / すんでいます</div>
+        <div class="example">
+          <span class="example-jp">うちに ワインが あります。</span>
+          <span class="example-bn">বাড়িতে ওয়াইন আছে।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(4) নির্দিষ্ট সময় — কখন</div>
+        <div class="rule-desc">ঘড়ির সময়, মাস, তারিখের আগে に বসে।</div>
+        <div class="example">
+          <span class="example-jp">6じに いきます。</span>
+          <span class="example-bn">৬টায় যাই।</span>
+        </div>
+        <div class="note-box" style="margin-top:8px;">
+          <div class="note-head">⚠️ মনে রাখো</div>
+          きょう、あした、いつ — এগুলোর পরে に বসে না।
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(5) 〜に のります — যানবাহনে ওঠা</div>
+        <div class="rule-desc">যেকোনো যানবাহনে ওঠার সময় に বসে। মনে রাখো — নামার সময় を ব্যবহার হয়, に নয়।</div>
+        <div class="example">
+          <span class="example-jp">しんかんせんに のります。</span>
+          <span class="example-bn">বুলেট ট্রেনে উঠি।</span>
+        </div>
+        <div class="rule-desc" style="margin-top:6px;">নামার সময় → を おります</div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(6) উদ্দেশ্য — কী করতে যাচ্ছি</div>
+        <div class="rule-desc">কোনো কাজ করতে যাওয়ার উদ্দেশ্য বোঝাতে।</div>
+        <div class="example">
+          <span class="example-jp">かいものに いきます。</span>
+          <span class="example-bn">কেনাকাটা করতে যাই।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(7) কর্মস্থল — কোথায় কাজ করি</div>
+        <div class="rule-desc">つとめています বা はたらいています এর আগে কর্মস্থল に দিয়ে চিহ্নিত হয়। "আমি [জায়গায়] চাকরি করছি" বোঝাতে।</div>
+        <div class="example">
+          <span class="example-jp">ABCぎんこうに つとめています。</span>
+          <span class="example-bn">ABC ব্যাংকে চাকরি করি।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(8) হার বা ফ্রিকোয়েন্সি — কত বার <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">[সংখ্যা]に[বার] দিয়ে "... তে কতবার" বোঝায়।</div>
+        <div class="example">
+          <span class="example-jp">いっしゅうかんに 3かい いきます。<br>いちにちに 2かい はみがきします。</span>
+          <span class="example-bn">সপ্তাহে ৩ বার যাই।<br>দিনে ২ বার দাঁত ব্রাশ করি।</span>
+        </div>
+      </div>
+      <div class="note-box">
+        <div class="note-head">💡 মূল কথা</div>
+        に মূলত <strong style="color:var(--accent2);">গন্তব্য, অস্তিত্ব, সময়, বা লক্ষ্য</strong> বোঝায়।
+        <div class="compare" style="margin-top:10px;">
+          <div class="compare-item">
+            <div class="ci-label">に</div>
+            <div class="ci-desc">যেখানে কিছু থাকে বা যায়</div>
+            <div class="ci-ex">うちに います</div>
+          </div>
+          <div class="compare-item">
+            <div class="ci-label">で</div>
+            <div class="ci-desc">যেখানে কাজটা হয়</div>
+            <div class="ci-ex">うちで たべます</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ で -->
+  <div class="particle-card" id="p5">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑤</span>
+      <span class="particle-jp">で</span>
+      <div class="particle-bn"><strong>স্থান / মাধ্যম / পদ্ধতি</strong>Location of action · Means</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) মাধ্যমে / ব্যবহার করে</div>
+        <div class="rule-desc">কোনো ভাষায়, যন্ত্রে, বা উপায়ে কাজ করার সময় で বসে। বাংলায় "দিয়ে" বা "তে" বোঝায়।</div>
+        <div class="example">
+          <span class="example-jp">にほんごで はなします。<br>カードで はらいます。</span>
+          <span class="example-bn">জাপানিতে কথা বলি।<br>কার্ডে পেমেন্ট করি।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) দলে / মোট</div>
+        <div class="rule-desc">কতজন মিলে কাজ করছে, বা মোট কত — সংখ্যার পরে で বসে। ぜんぶで মানে "সব মিলিয়ে"।</div>
+        <div class="example">
+          <span class="example-jp">3にんで いきます。／ ぜんぶで いくらですか。</span>
+          <span class="example-bn">৩ জনে যাই। / মোট কত?</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) যেখানে কাজটা হয়</div>
+        <div class="rule-desc">কোনো জায়গায় কোনো কাজ করা হয় — সেই জায়গা で দিয়ে চিহ্নিত হয়। に-র মতো নয় — এখানে কাজের উপর জোর।</div>
+        <div class="example">
+          <span class="example-jp">マクドナルドで たべました。</span>
+          <span class="example-bn">ম্যাকডোনাল্ডে খেলাম।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(4) 〜のあとで — এর পরে <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">কোনো কাজের পরে আরেকটা কাজ হয় — [বিষয়]のあとで গঠনে। で এখানে "পরে" বোঝায়।</div>
+        <div class="example">
+          <span class="example-jp">レッスンの あとで いきます。</span>
+          <span class="example-bn">ক্লাসের পরে যাই।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(5) ইভেন্টের স্থান</div>
+        <div class="rule-desc">কোনো অনুষ্ঠান বা ইভেন্ট কোথায় হচ্ছে সেটা বোঝাতে で বসে। এখানেও কাজের জায়গা হিসেবে で।</div>
+        <div class="example">
+          <span class="example-jp">MLCで パーティーが あります。</span>
+          <span class="example-bn">MLC-তে পার্টি আছে।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(6) কারণ বা পরিস্থিতি <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">কোনো কারণে বা পরিস্থিতির জন্য কিছু হয়েছে বোঝাতে।</div>
+        <div class="example">
+          <span class="example-jp">かぜで かいしゃを やすみました。<br>じしんで でんしゃが とまりました。</span>
+          <span class="example-bn">সর্দিতে অফিস করিনি।<br>ভূমিকম্পে ট্রেন বন্ধ হয়ে গেছে।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ へ -->
+  <div class="particle-card" id="p6">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑥</span>
+      <span class="particle-jp">へ</span>
+      <div class="particle-bn"><strong>দিক / গন্তব্য</strong>Direction · Towards</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">কোন দিকে যাচ্ছি</div>
+        <div class="rule-desc">যানবাহন বা পায়ে হেঁটে যে দিকে যাওয়া হচ্ছে তা বোঝাতে へ বসে। に-এর মতোই, তবে へ শুধু দিক বা গন্তব্য বোঝায় — অস্তিত্ব বা সময় নয়।</div>
+        <div class="example">
+          <span class="example-jp">ハワイへ いきます。</span>
+          <span class="example-bn">হাওয়াইয়ের দিকে যাই।</span>
+        </div>
+      </div>
+      <div class="note-box">
+        <div class="note-head">⚠️ に vs へ পার্থক্য</div>
+        に আর へ প্রায় একই — তবে へ শুধু দিক বোঝায়, に আরো বেশি কাজে লাগে।
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ から -->
+  <div class="particle-card" id="p7">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑦</span>
+      <span class="particle-jp">から</span>
+      <div class="particle-bn"><strong>থেকে / কারণ</strong>From · Because</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) শুরুর বিন্দু — সময় বা স্থান</div>
+        <div class="example">
+          <span class="example-jp">うちから えきまで 5ふんです。</span>
+          <span class="example-bn">বাড়ি থেকে স্টেশন ৫ মিনিট।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) কারণ বোঝাতে <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">বাক্যের শেষে から বসলে "তাই / কারণ" বোঝায়। から-এর আগে কারণ, পরে ফলাফল আসে। ので-এর চেয়ে একটু জোরালো।</div>
+        <div class="example">
+          <span class="example-jp">あめですから、どこにも いきません。</span>
+          <span class="example-bn">বৃষ্টি হচ্ছে, তাই কোথাও যাচ্ছি না।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) উপাদান / উৎস <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">কোনো জিনিস কী দিয়ে তৈরি বা কোথা থেকে এসেছে।</div>
+        <div class="example">
+          <span class="example-jp">ワインは ぶどうから つくります。<br>これは にほんから きました。</span>
+          <span class="example-bn">ওয়াইন আঙুর থেকে বানানো হয়।<br>এটা জাপান থেকে এসেছে।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑧ まで -->
+  <div class="particle-card" id="p8">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑧</span>
+      <span class="particle-jp">まで</span>
+      <div class="particle-bn"><strong>পর্যন্ত</strong>Until · Up to</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) শেষসীমা</div>
+        <div class="rule-desc">সময় বা জায়গার শেষ বিন্দু বোঝাতে まで বসে। কাজটা সেই সময় পর্যন্ত চলতে থাকে — এটাই まで-এর মূল অর্থ।</div>
+        <div class="example">
+          <span class="example-jp">6じまで しごとを します。</span>
+          <span class="example-bn">৬টা পর্যন্ত কাজ করি।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) から〜まで একসাথে</div>
+        <div class="rule-desc">শুরু (から) থেকে শেষ (まで) পর্যন্ত বোঝাতে দুটো একসাথে ব্যবহার হয়। সময় এবং দূরত্ব দুটোতেই চলে।</div>
+        <div class="example">
+          <span class="example-jp">うちから かいしゃまで 45ふんです。</span>
+          <span class="example-bn">বাড়ি থেকে অফিস পর্যন্ত ৪৫ মিনিট।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑨ までに -->
+  <div class="particle-card" id="p9">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑨</span>
+      <span class="particle-jp">までに</span>
+      <div class="particle-bn"><strong>এর মধ্যে (Deadline)</strong>By a certain time</div>
+      <span class="n4-badge">N4</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">নির্দিষ্ট সময়ের আগেই কাজ শেষ করতে হবে</div>
+        <div class="rule-desc">までに মানে deadline — কাজটা সেই সময়ের মধ্যে একবার শেষ করতে হবে। まで থেকে আলাদা — まで মানে "পর্যন্ত চলে", までに মানে "ঐ সময়ের আগে শেষ"।</div>
+        <div class="example">
+          <span class="example-jp">6じまでに いきます。</span>
+          <span class="example-bn">৬টার মধ্যে যাবো।</span>
+        </div>
+      </div>
+      <div class="note-box">
+        <div class="note-head">⚠️ まで vs までに</div>
+        <div class="compare">
+          <div class="compare-item">
+            <div class="ci-label">まで</div>
+            <div class="ci-desc">পর্যন্ত চলতে থাকে</div>
+            <div class="ci-ex">6じまで はたらきます</div>
+          </div>
+          <div class="compare-item">
+            <div class="ci-label">までに</div>
+            <div class="ci-desc">এর মধ্যে একবার শেষ</div>
+            <div class="ci-ex">6じまでに いきます</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑩ の -->
+  <div class="particle-card" id="p10">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑩</span>
+      <span class="particle-jp">の</span>
+      <div class="particle-bn"><strong>অধিকার / সম্পর্ক</strong>Possessive · Belonging</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) অধিকার বোঝাতে</div>
+        <div class="rule-desc">কোনো জিনিস কার — এটা বোঝাতে মালিকের পরে の বসে। বাংলায় "আমার", "তার", "সুজুকি সানের" এর মতো।</div>
+        <div class="example">
+          <span class="example-jp">わたしの ほん</span>
+          <span class="example-bn">আমার বই</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) সম্পর্ক / উৎস</div>
+        <div class="rule-desc">কোন দেশের, কোন কোম্পানির, কোন সংস্থার — এই সম্পর্ক বোঝাতে の বসে। প্রথম বিশেষ্য দ্বিতীয়টাকে বর্ণনা করে।</div>
+        <div class="example">
+          <span class="example-jp">にほんの くるま</span>
+          <span class="example-bn">জাপানের গাড়ি</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) পরিচয় করিয়ে দেওয়া</div>
+        <div class="rule-desc">কারো পেশা বা ভূমিকা উল্লেখ করে নাম বলার সময়। "শিক্ষক নাকামুরা সান" মানে নাকামুরা সান যিনি শিক্ষক।</div>
+        <div class="example">
+          <span class="example-jp">せんせいの なかむらさん</span>
+          <span class="example-bn">শিক্ষক নাকামুরা সান</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(4) ফোন নম্বরে হাইফেনের মতো</div>
+        <div class="rule-desc">ফোন নম্বর বলার সময় সংখ্যার গ্রুপগুলোকে の দিয়ে আলাদা করা হয়। লেখায় হাইফেন, বলায় の।</div>
+        <div class="example">
+          <span class="example-jp">03－3493－3727</span>
+          <span class="example-bn">ফোন নম্বরে বিভাজন</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(5) বিশেষণের মতো জায়গা বোঝানো</div>
+        <div class="rule-desc">দুটো বিশেষ্যের মাঝে বসে প্রথমটা দ্বিতীয়টাকে বিশেষায়িত করে।</div>
+        <div class="example">
+          <span class="example-jp">にほんごの じゅぎょう<br>えいごの せんせい</span>
+          <span class="example-bn">জাপানি ভাষার ক্লাস<br>ইংরেজির শিক্ষক</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(6) Nominalizer — ক্রিয়াকে বিশেষ্য বানানো <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">বাক্যের শেষে の বসিয়ে পুরো বাক্যটাকে বিশেষ্যের মতো ব্যবহার করা যায়। বাংলায় "...করাটা" বা "...করা" এর মতো।</div>
+        <div class="example">
+          <span class="example-jp">うたうのが すきです。<br>にほんごを べんきょうするのは たのしいです。</span>
+          <span class="example-bn">গান গাওয়া পছন্দ।<br>জাপানি পড়াটা মজার।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(7) Explanatory の — কারণ বা নরম জিজ্ঞাসা <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">বাক্যের শেষে んです / のです বসিয়ে ব্যাখ্যা বা নরমভাবে কারণ জানানো যায়।</div>
+        <div class="example">
+          <span class="example-jp">あたまが いたいんです。<br>どうして いかないんですか。</span>
+          <span class="example-bn">আসলে মাথাব্যথা আছে।<br>কেন যাচ্ছো না?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑪ と -->
+  <div class="particle-card" id="p11">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑪</span>
+      <span class="particle-jp">と</span>
+      <div class="particle-bn"><strong>এবং / সাথে</strong>And · With</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) দুটো জিনিস যোগ করতে — and</div>
+        <div class="rule-desc">দুটো বা ততোধিক নির্দিষ্ট জিনিস যোগ করতে と বসে। এটা exhaustive — মানে শুধু এই জিনিসগুলোই, আর কিছু নেই। আরও থাকলে や ব্যবহার করো।</div>
+        <div class="example">
+          <span class="example-jp">コーヒーと チーズケーキを おねがいします。</span>
+          <span class="example-bn">কফি এবং চিজকেক দিন।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) কার সাথে — with</div>
+        <div class="rule-desc">কোনো কাজ কার সাথে করা হচ্ছে — সেই সঙ্গী বোঝাতে と বসে। "বন্ধুর সাথে", "পরিবারের সাথে" এই ভাব।</div>
+        <div class="example">
+          <span class="example-jp">ともだちと いきます。</span>
+          <span class="example-bn">বন্ধুর সাথে যাই।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) উদ্ধৃতি / মনের কথা — Quotation <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">কেউ কী বলেছে বা কী ভেবেছে তা বোঝাতে と বসে いいます / おもいます এর আগে।</div>
+        <div class="example">
+          <span class="example-jp">「いきます」と いいました。<br>むずかしいと おもいます。</span>
+          <span class="example-bn">"যাবো" বলল।<br>কঠিন বলে মনে হয়।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑫ や -->
+  <div class="particle-card" id="p12">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑫</span>
+      <span class="particle-jp">や</span>
+      <div class="particle-bn"><strong>এবং ইত্যাদি</strong>And (non-exhaustive)</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">উদাহরণ দেওয়া — আরও আছে বোঝায়</div>
+        <div class="rule-desc">কয়েকটা উদাহরণ দিয়ে বোঝাতে হলে や বসে। এটা non-exhaustive — মানে তালিকায় আরও জিনিস আছে, সব বলা হয়নি। と-এর মতো না।</div>
+        <div class="example">
+          <span class="example-jp">おてらや じんじゃが あります。</span>
+          <span class="example-bn">মন্দির, মসজিদ ইত্যাদি আছে।</span>
+        </div>
+      </div>
+      <div class="note-box">
+        <div class="note-head">⚠️ と vs や পার্থক্য</div>
+        <div class="compare">
+          <div class="compare-item">
+            <div class="ci-label">と</div>
+            <div class="ci-desc">শুধু এই দুটো — সম্পূর্ণ তালিকা</div>
+          </div>
+          <div class="compare-item">
+            <div class="ci-label">や</div>
+            <div class="ci-desc">এগুলো সহ আরও আছে</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑬ か -->
+  <div class="particle-card" id="p13">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑬</span>
+      <span class="particle-jp">か</span>
+      <div class="particle-bn"><strong>প্রশ্নবোধক</strong>Question marker</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">বাক্যের শেষে বসে প্রশ্ন তৈরি করে</div>
+        <div class="example">
+          <span class="example-jp">だいじょうぶですか。</span>
+          <span class="example-bn">ঠিক আছেন তো?</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) Embedded question — ভেতরে প্রশ্ন <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">বাক্যের মাঝখানে প্রশ্ন ঢোকানোর সময়, বাইরের বাক্যের শেষে か লাগে না।</div>
+        <div class="example">
+          <span class="example-jp">かれが だれか しりません。<br>どこへ いくか おしえてください。</span>
+          <span class="example-bn">সে কে তা জানি না।<br>কোথায় যাচ্ছো বলো।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) ~か~か — এটা নাকি ওটা, বিকল্প বোঝানো</div>
+        <div class="rule-desc">দুটো অপশনের মধ্যে একটা বেছে নেওয়া।</div>
+        <div class="example">
+          <span class="example-jp">コーヒーか こうちゃを ください。<br>どようびか にちようびに いきましょう。</span>
+          <span class="example-bn">কফি বা চা দিন।<br>শনি বা রবিবার যাবো।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑭ も -->
+  <div class="particle-card" id="p14">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑭</span>
+      <span class="particle-jp">も</span>
+      <div class="particle-bn"><strong>ও / ও-ও</strong>Also · Too · Neither</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) "ও" বোঝাতে — also / too</div>
+        <div class="rule-desc">আগে যা বলা হয়েছে তার মতো আরেকটা জিনিসও একই — এটা বোঝাতে も বসে। は, が, を সরিয়ে সেখানে も বসে।</div>
+        <div class="example">
+          <span class="example-jp">わたしも いきます。<br>これも ください。</span>
+          <span class="example-bn">আমিও যাচ্ছি।<br>এটাও দিন।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) 〜にも、〜でも — complex pattern <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">に, で এর মতো অন্য particle-এর সাথে も যোগ হলে "সেখানেও" বা "সেটা দিয়েও" বোঝায়। particle সরে না, শুধু も যোগ হয়।</div>
+        <div class="example">
+          <span class="example-jp">うちにも PCが あります。<br>かいしゃでも べんきょうします。</span>
+          <span class="example-bn">বাড়িতেও PC আছে।<br>অফিসেও পড়ি।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) সার্বজনীন নেতিবাচক — nobody / nothing</div>
+        <div class="rule-desc">だれも (কেউও), なにも (কিছুও), どこも (কোথাও) — এই শব্দগুলো নেতিবাচক ক্রিয়ার সাথে মিলে "একদমই না" বোঝায়।</div>
+        <div class="example">
+          <span class="example-jp">だれも いません。<br>なにも ありません。</span>
+          <span class="example-bn">কেউ নেই।<br>কিছু নেই।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(4) পরিমাণে জোর — এমনকি / পর্যন্ত <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">অবাক হওয়ার মতো পরিমাণ বা ঘটনা জোর দিয়ে বলতে।</div>
+        <div class="example">
+          <span class="example-jp">3じかんも まちました。<br>100まいも かいました。</span>
+          <span class="example-bn">৩ ঘণ্টা পর্যন্ত অপেক্ষা করলাম।<br>১০০টা পর্যন্ত কিনলাম!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑮ ね -->
+  <div class="particle-card" id="p15">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑮</span>
+      <span class="particle-jp">ね</span>
+      <div class="particle-bn"><strong>তাই না? / বাহ!</strong>Right? · Agreement</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">(1) নিশ্চিত করতে — right? / isn't it?</div>
+        <div class="rule-desc">কোনো কিছু সত্যি কিনা নিশ্চিত করতে বা শ্রোতার সম্মতি চাইতে বাক্যের শেষে ね বসে। বাংলায় "তাই না?" বা "তো?" এর মতো।</div>
+        <div class="example">
+          <span class="example-jp">きょうは 15にちですね。</span>
+          <span class="example-bn">আজ ১৫ তারিখ, তাই না?</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) বিস্ময় বা প্রশংসা</div>
+        <div class="rule-desc">কোনো কিছু দেখে বা শুনে মুগ্ধ হলে ね দিয়ে সেই অনুভূতি প্রকাশ করা হয়। ইন্টোনেশন উপরে উঠলে প্রশংসা, নামলে সম্মতি।</div>
+        <div class="example">
+          <span class="example-jp">いいですね！</span>
+          <span class="example-bn">বাহ, ভালো!</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) একসাথে অনুভব করা</div>
+        <div class="rule-desc">দুজন একই জিনিস অনুভব করছে বা একই মত — এটা বোঝাতে ね বসে। সেটা শেয়ার করার একটা উষ্ণ ভাব।</div>
+        <div class="example">
+          <span class="example-jp">おいしいですね！／ そうですね。</span>
+          <span class="example-bn">সত্যিই সুস্বাদু! / হ্যাঁ, ঠিকই।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑯ よ -->
+  <div class="particle-card" id="p16">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑯</span>
+      <span class="particle-jp">よ</span>
+      <div class="particle-bn"><strong>জানানো / নিশ্চিত করা</strong>Informing · Asserting</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">শ্রোতা জানে না এমন তথ্য দেওয়া</div>
+        <div class="rule-desc">বক্তা জানে কিন্তু শ্রোতা হয়তো জানে না — এমন তথ্য জানাতে よ বসে। একটু জোরালো ভাব, যেন "আমি নিশ্চিত করে বলছি"। অপরিচিতদের সাথে বেশি ব্যবহার না করাই ভালো।</div>
+        <div class="example">
+          <span class="example-jp">これ、おいしいですよ。</span>
+          <span class="example-bn">এটা কিন্তু সুস্বাদু!</span>
+        </div>
+      </div>
+      <div class="note-box">
+        <div class="note-head">⚠️ ね vs よ পার্থক্য</div>
+        <div class="compare">
+          <div class="compare-item">
+            <div class="ci-label">ね</div>
+            <div class="ci-desc">দুজনেই জানে বা একমত হচ্ছে</div>
+          </div>
+          <div class="compare-item">
+            <div class="ci-label">よ</div>
+            <div class="ci-desc">আমি জানি, তুমি হয়তো জানো না</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑰ ごろ -->
+  <div class="particle-card" id="p17">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑰</span>
+      <span class="particle-jp">ごろ</span>
+      <div class="particle-bn"><strong>আনুমানিক সময়</strong>Around (time)</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">সময়ের আগে বসে "প্রায় / দিকে" বোঝায়</div>
+        <div class="example">
+          <span class="example-jp">9じごろに でんわします。</span>
+          <span class="example-bn">৯টার দিকে ফোন করবো।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) অতীত বা সাধারণ সময় বোঝাতে</div>
+        <div class="rule-desc">নির্দিষ্ট না, মোটামুটি কোন সময় বোঝাতে।</div>
+        <div class="example">
+          <span class="example-jp">こどものころ、にほんに すんでいました。<br>らいねんのはるごろ けっこんします。</span>
+          <span class="example-bn">ছোটবেলায় জাপানে থাকতাম।<br>আগামী বসন্তের দিকে বিয়ে করবো।</span>
+        </div>
+      </div>
+      <div class="note-box">
+        <div class="note-head">⚠️ ごろ vs ぐらい</div>
+        ごろ → শুধু সময়ের জন্য &nbsp;|&nbsp; ぐらい → পরিমাণের জন্য
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑱ ぐらい -->
+  <div class="particle-card" id="p18">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="num-badge">⑱</span>
+      <span class="particle-jp">ぐらい</span>
+      <div class="particle-bn"><strong>আনুমানিক পরিমাণ</strong>About (quantity/duration)</div>
+      <span class="n5-badge">N5</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+    <div class="card-body collapsed">
+      <div class="rule">
+        <div class="rule-title">পরিমাণ বা সময়ের পরিসর বোঝায়</div>
+        <div class="example">
+          <span class="example-jp">8じかんぐらい ねました。</span>
+          <span class="example-bn">প্রায় ৮ ঘণ্টা ঘুমালাম।</span>
+        </div>
+        <div class="example">
+          <span class="example-jp">8じぐらいに かえります。</span>
+          <span class="example-bn">৮টার দিকে ফিরবো।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(2) দূরত্ব বা মূল্য আনুমানিক বোঝাতে</div>
+        <div class="example">
+          <span class="example-jp">ここから 5キロぐらい あります。<br>3まんえんぐらい かかります。</span>
+          <span class="example-bn">এখান থেকে প্রায় ৫ কিলোমিটার।<br>প্রায় ৩০,০০০ ইয়েন লাগবে।</span>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-title">(3) "এটুকু অন্তত" — minimum degree <span class="n4-badge">N4</span></div>
+        <div class="rule-desc">কোনো কিছু অন্তত এটুকু করা উচিত — এই ভাব বোঝাতে।</div>
+        <div class="example">
+          <span class="example-jp">でんわぐらい してください。</span>
+          <span class="example-bn">অন্তত একটা ফোন করো।</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-bg-text">Z2I_MASHRAFE</div>
+      <div class="footer-brand">Z2I_MASHRAFE</div>
+      <div class="footer-line"></div>
+      <div class="footer-sub">N5 Japanese Particle Guide</div>
+      <div class="footer-social-row">
+        <a class="fsocial" href="https://www.facebook.com/z2i.mashrafe" target="_blank" title="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.269h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+        <a class="fsocial" href="https://www.instagram.com/z2i.mashrafe" target="_blank" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="fsocial" href="https://x.com/z2i_mashrafe" target="_blank" title="X">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="fsocial" href="https://github.com/z2i-mashrafe" target="_blank" title="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+      </div>
+      <div class="footer-copy">© 2025 Z2I · Mashrafe Sheikh · All rights reserved</div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function toggle(header) {
+    const body = header.nextElementSibling;
+    const icon = header.querySelector('.toggle-icon');
+    if (body.classList.contains('collapsed')) {
+      body.classList.remove('collapsed');
+      icon.style.transform = 'rotate(0deg)';
+    } else {
+      body.classList.add('collapsed');
+      icon.style.transform = 'rotate(-90deg)';
+    }
+  }
+
+  document.querySelectorAll('.nav-pill').forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(pill.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const body = target.querySelector('.card-body');
+        const icon = target.querySelector('.toggle-icon');
+        if (body && body.classList.contains('collapsed')) {
+          body.classList.remove('collapsed');
+          icon.style.transform = 'rotate(0deg)';
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
